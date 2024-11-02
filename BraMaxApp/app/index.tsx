@@ -34,14 +34,14 @@ const Index = () => {
       <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/DailyChallenge')}>
         <Text style={styles.buttonText}>Daily Challenge</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/BrainGames')}>
+      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/PuzzleGame')}>
         <Text style={styles.buttonText}>Brain Games</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/ProgressTracking')}>
-        <Text style={styles.buttonText}>Progress Tracking</Text>
+      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/SpatialGame')}>
+        <Text style={styles.buttonText}>SpatialGame</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/CustomizedTrainingProgram')}>
-        <Text style={styles.buttonText}>Customized Training Program</Text>
+      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/ChessGame')}>
+        <Text style={styles.buttonText}>ChessGame</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.arrowButton} onPress={() => handleButtonPress('Screens/BraMaxDetails')}>
         <Icon name="arrow-forward" size={24} color="#fff" />

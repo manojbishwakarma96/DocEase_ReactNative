@@ -20,7 +20,7 @@ const BraMaxDetails = () => {
             <Text style={styles.buttonText}>Simple Arithmetic</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ marginTop: '5%' }}>
+        <View style={styles.spaceBetweenCards}>
           <View style={[styles.card, styles.redCard]}>
             <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('WordPuzzle')}>
               <Text style={styles.buttonText}>Word Puzzle</Text>
@@ -37,7 +37,7 @@ const BraMaxDetails = () => {
         <View style={styles.datePicker}>
           <Text style={styles.datePickerLabel}>Date From:</Text>
           <DatePicker
-            style={{ width: '100%' }}
+            style={styles.datePickerInput}
             date={dateFrom}
             mode="date"
             placeholder="Select date"
@@ -50,7 +50,7 @@ const BraMaxDetails = () => {
         <View style={styles.datePicker}>
           <Text style={styles.datePickerLabel}>Date To:</Text>
           <DatePicker
-            style={{ width: '100%' }}
+            style={styles.datePickerInput}
             date={dateTo}
             mode="date"
             placeholder="Select date"
@@ -65,7 +65,7 @@ const BraMaxDetails = () => {
         <TouchableOpacity style={[styles.smallButton, styles.blueButton]} onPress={() => handleButtonPress('Search')}>
           <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.smallButton, styles.blueButton]} onPress={() => handleButtonPress('ClearSearch')}>
+        <TouchableOpacity style={[styles.smallButton, styles.clearButton]} onPress={() => handleButtonPress('ClearSearch')}>
           <Text style={styles.buttonText}>Clear Search</Text>
         </TouchableOpacity>
       </View>
@@ -78,74 +78,91 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    padding: 20,
+    backgroundColor: '#f5f5f5',
   },
   cardContainer: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    marginBottom: '20%',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: '15%',
+  },
+  spaceBetweenCards: {
+    marginTop: '5%',
+    width: '100%',
   },
   card: {
     flex: 1,
     borderRadius: 20,
     shadowColor: '#000',
     shadowOffset: {
-      width: 5,
-      height: 5,
+      width: 2,
+      height: 4,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
     elevation: 5,
-    padding: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
   },
   button: {
     flex: 1,
-    borderRadius: 40,
+    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  smallButton: {
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    marginHorizontal: 5,
-  },
   buttonText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#fff',
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   greenCard: {
-    backgroundColor: '#8BC34A', // Light green
+    backgroundColor: '#4CAF50', // Slightly darker green
   },
   redCard: {
-    backgroundColor: '#EF9A9A', // Light red
+    backgroundColor: '#E57373', // Slightly darker red
   },
   blueButton: {
-    backgroundColor: '#007AFF', // Blue color for the "Clear Search" button
+    backgroundColor: '#007AFF', // Bright blue
+  },
+  clearButton: {
+    backgroundColor: '#FF6F61', // Coral for contrast with blue
   },
   datePickerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
+    width: '100%',
   },
   datePicker: {
     flex: 1,
     marginRight: 10,
   },
+  datePickerInput: {
+    width: '100%',
+    paddingVertical: 10,
+  },
   datePickerLabel: {
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: 5,
     fontWeight: 'bold',
+    color: '#333',
   },
   bottomButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+  },
+  smallButton: {
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginHorizontal: 5,
+    alignItems: 'center',
   },
 });
 
