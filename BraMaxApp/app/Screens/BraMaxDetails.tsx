@@ -76,20 +76,22 @@ const BraMaxDetails = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#f5f5f5',
   },
   cardContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     width: '100%',
-    marginBottom: '15%',
+    marginBottom: 20,
   },
   spaceBetweenCards: {
-    marginTop: '5%',
+    marginTop: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     width: '100%',
   },
   card: {
@@ -97,38 +99,45 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     shadowColor: '#000',
     shadowOffset: {
-      width: 2,
-      height: 4,
+      width: 0,
+      height: 2,
     },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    paddingVertical: 20,
     marginHorizontal: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 120, // Adjust height for better visibility
   },
   button: {
     flex: 1,
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: 18, // Increased font size for better visibility
     color: '#fff',
-    fontWeight: '600',
+    fontWeight: 'bold', // Made font bold for emphasis
   },
   greenCard: {
-    backgroundColor: '#4CAF50', // Slightly darker green
+    backgroundColor: '#4CAF50',
   },
   redCard: {
-    backgroundColor: '#E57373', // Slightly darker red
+    backgroundColor: '#E57373',
   },
   blueButton: {
-    backgroundColor: '#007AFF', // Bright blue
+    backgroundColor: '#007AFF',
+    flex: 1,
+    marginHorizontal: 5,
   },
   clearButton: {
-    backgroundColor: '#FF6F61', // Coral for contrast with blue
+    backgroundColor: '#FF6F61',
+    flex: 1,
+    marginHorizontal: 5,
   },
   datePickerContainer: {
     flexDirection: 'row',
@@ -139,7 +148,7 @@ const styles = StyleSheet.create({
   },
   datePicker: {
     flex: 1,
-    marginRight: 10,
+    marginHorizontal: 5,
   },
   datePickerInput: {
     width: '100%',
@@ -153,16 +162,17 @@ const styles = StyleSheet.create({
   },
   bottomButtonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 20,
+    width: '100%',
   },
   smallButton: {
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginHorizontal: 5,
     alignItems: 'center',
+    flex: 1,
+    marginHorizontal: 5,
   },
 });
 

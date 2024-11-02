@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const PuzzleGame = () => {
   const navigation = useNavigation();
 
   const handleNavigate = () => {
-    navigation.navigate('Sxreens/ChessGame'); // Replace 'NextScreen' with the name of your target screen
+    navigation.navigate('Screens/ChessGame'); // Corrected the screen name
   };
 
   return (
@@ -15,6 +15,11 @@ const PuzzleGame = () => {
       <Text style={styles.description}>
         Solve puzzles to test your skills and have fun!
       </Text>
+      <Image 
+        source={require('../../assets/images/puzzle.png')} // Adjusted the path
+        style={styles.brainImage} 
+        resizeMode="contain"
+      />
       <TouchableOpacity style={styles.button} onPress={handleNavigate}>
         <Text style={styles.buttonText}>Start Next Challenge</Text>
       </TouchableOpacity>
@@ -44,6 +49,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 10,
     paddingHorizontal: 20,
+  },
+  brainImage: {
+    width: '100%', // Make the image responsive
+    height: 200, // Set a fixed height for the image
+    marginVertical: 20, // Space between image and button
   },
   button: {
     marginTop: 20,
