@@ -1,0 +1,5 @@
+#Mock Credentials
+
+ // Mock credentials
+Email = 'techfrenzy@gmail.com'
+Password = 'Tech@123'

@@ -8,6 +8,10 @@ const SignInScreen = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
+  // Mock credentials
+  const mockEmail = 'techfrenzy@gmail.com';
+  const mockPassword = 'Tech@123';
+
   // Handle form submission (login)
   const handleLogin = () => {
     // Simple validation check for email and password
@@ -16,11 +20,13 @@ const SignInScreen = () => {
       return;
     }
 
-    // Handle login logic here (e.g., Firebase auth, etc.)
-    console.log('Logging in with', email, password);
-
-    // Navigate to the HomeScreen after login
-    navigation.navigate('WelcomeScreen');
+    // Check if email and password match mock credentials
+    if (email === mockEmail && password === mockPassword) {
+      console.log('Login successful');
+      navigation.navigate('WelcomeScreen'); // Navigate to the WelcomeScreen after login
+    } else {
+      Alert.alert('Error', 'Invalid email or password');
+    }
   };
 
   return (
