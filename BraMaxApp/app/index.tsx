@@ -1,56 +1,63 @@
-// Index.js
-
-import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import Ionicons from react-native-vector-icons
 
-// Define 'MyBraMaxHomeNavBar' component
-const MyBraMaxHomeNavBar = () => {
+// Define 'SignInScreen' component
+const SignInScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const handleButtonPress = () => {
-    navigation.navigate('Screens/BraMaxDetails'); // Navigate to 'BraMaxDetails' screen
-  };
+  // Handle form submission (login)
+  const handleLogin = () => {
+    // Simple validation check for email and password
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter both email and password');
+      return;
+    }
 
-  return (
-    <TouchableOpacity style={styles.navButton} onPress={handleButtonPress}>
-      <Text style={styles.navButtonText}>My BraMax Home</Text>
-    </TouchableOpacity>
-  );
-};
+    // Handle login logic here (e.g., Firebase auth, etc.)
+    console.log('Logging in with', email, password);
 
-// Define 'Index' component
-const Index = () => {
-  const navigation = useNavigation();
-
-  const handleButtonPress = (screenName) => {
-    navigation.navigate(screenName);
+    // Navigate to the HomeScreen after login
+    navigation.navigate('WelcomeScreen');
   };
 
   return (
     <View style={styles.container}>
-      <MyBraMaxHomeNavBar />
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/DailyChallenge')}>
-        <Text style={styles.buttonText}>Daily Challenge</Text>
+      <Text style={styles.welcomeText}>Sign In</Text>
+      <Text style={styles.subtitleText}>Enter your credentials to continue</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/PuzzleGame')}>
-        <Text style={styles.buttonText}>Brain Games</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/SpatialGame')}>
-        <Text style={styles.buttonText}>SpatialGame</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('Screens/ChessGame')}>
-        <Text style={styles.buttonText}>ChessGame</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.arrowButton} onPress={() => handleButtonPress('Screens/BraMaxDetails')}>
-        <Icon name="arrow-forward" size={24} color="#fff" />
+
+      <TouchableOpacity
+        style={styles.linkButton}
+        onPress={() => navigation.navigate('Screens/SignUpScreen')}  // Navigate to RegisterScreen
+      >
+        <Text style={styles.linkText}>Don't have an account? Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Index;
+export default SignInScreen;
 
 // Styles
 const styles = StyleSheet.create({
@@ -59,41 +66,46 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#f0f0f0',
   },
-  navButton: {
-    backgroundColor: '#007AFF',
-    borderRadius: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    marginBottom: 20,
-  },
-  navButtonText: {
-    fontSize: 20,
-    color: '#fff',
+  welcomeText: {
+    fontSize: 30,
     fontWeight: 'bold',
+    color: '#007AFF',
+    marginBottom: 10,
+  },
+  subtitleText: {
+    fontSize: 18,
+    color: '#333',
+    marginBottom: 40,
+  },
+  input: {
+    width: '80%',
+    height: 45,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 20,
   },
   button: {
-    backgroundColor: 'rgba(255,255,255,0.8)',
-    borderRadius: 20,
+    backgroundColor: '#007AFF',
     paddingVertical: 15,
     paddingHorizontal: 30,
+    borderRadius: 20,
     marginBottom: 20,
-    width: '100%',
-    alignItems: 'center',
   },
   buttonText: {
     fontSize: 18,
-    color: '#007AFF',
+    color: '#fff',
     fontWeight: 'bold',
   },
-  arrowButton: {
-    backgroundColor: '#007AFF',
-    borderRadius: 50,
-    padding: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 30,
-    right: 30,
+  linkButton: {
+    marginTop: 10,
+  },
+  linkText: {
+    fontSize: 16,
+    color: '#007AFF',
+    textDecorationLine: 'underline',
   },
 });
