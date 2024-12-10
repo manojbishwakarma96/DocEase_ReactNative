@@ -6,7 +6,7 @@ const PuzzleGame = () => {
   const navigation = useNavigation();
 
   const handleNavigate = () => {
-    navigation.navigate('Screens/ChessGame'); // Corrected the screen name
+    navigation.navigate('ChessGame'); // Corrected the screen name
   };
 
   return (

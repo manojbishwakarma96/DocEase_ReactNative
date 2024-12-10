@@ -18,6 +18,7 @@ const SignUpScreen: React.FC = () => {
     }
     // Logic to handle sign-up (e.g., send data to a server)
     Alert.alert('Success', 'Sign-Up Successful');
+     navigation.navigate('index'); 
   };
 
   // Function to navigate to the Welcome Screen

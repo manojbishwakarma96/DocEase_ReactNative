@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, View, StyleSheet, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import DatePicker from 'react-native-datepicker';
 
 const BraMaxDetails = () => {
   const navigation = useNavigation();
@@ -36,28 +35,20 @@ const BraMaxDetails = () => {
       <View style={styles.datePickerContainer}>
         <View style={styles.datePicker}>
           <Text style={styles.datePickerLabel}>Date From:</Text>
-          <DatePicker
+          <TextInput
             style={styles.datePickerInput}
-            date={dateFrom}
-            mode="date"
-            placeholder="Select date"
-            format="YYYY-MM-DD"
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            onDateChange={(date) => setDateFrom(date)}
+            placeholder="YYYY-MM-DD"
+            value={dateFrom}
+            onChangeText={setDateFrom}
           />
         </View>
         <View style={styles.datePicker}>
           <Text style={styles.datePickerLabel}>Date To:</Text>
-          <DatePicker
+          <TextInput
             style={styles.datePickerInput}
-            date={dateTo}
-            mode="date"
-            placeholder="Select date"
-            format="YYYY-MM-DD"
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            onDateChange={(date) => setDateTo(date)}
+            placeholder="YYYY-MM-DD"
+            value={dateTo}
+            onChangeText={setDateTo}
           />
         </View>
       </View>
@@ -65,7 +56,10 @@ const BraMaxDetails = () => {
         <TouchableOpacity style={[styles.smallButton, styles.blueButton]} onPress={() => handleButtonPress('Search')}>
           <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.smallButton, styles.clearButton]} onPress={() => handleButtonPress('ClearSearch')}>
+        <TouchableOpacity style={[styles.smallButton, styles.clearButton]} onPress={() => {
+          setDateFrom('');
+          setDateTo('');
+        }}>
           <Text style={styles.buttonText}>Clear Search</Text>
         </TouchableOpacity>
       </View>
@@ -109,7 +103,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 120, // Adjust height for better visibility
+    height: 120,
   },
   button: {
     flex: 1,
@@ -119,9 +113,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   buttonText: {
-    fontSize: 18, // Increased font size for better visibility
+    fontSize: 18,
     color: '#fff',
-    fontWeight: 'bold', // Made font bold for emphasis
+    fontWeight: 'bold',
   },
   greenCard: {
     backgroundColor: '#4CAF50',
@@ -153,6 +147,11 @@ const styles = StyleSheet.create({
   datePickerInput: {
     width: '100%',
     paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
   },
   datePickerLabel: {
     fontSize: 14,

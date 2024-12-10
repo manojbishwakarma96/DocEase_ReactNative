@@ -6,7 +6,7 @@ const DailyChallenge = () => {
   const navigation = useNavigation();
 
   const handleNavigate = () => {
-    navigation.navigate('Screens/BraMaxDetails'); // Replace 'BraMaxDetails' with the name of your target screen
+    navigation.navigate('PuzzleGame'); // Replace 'BraMaxDetails' with the name of your target screen
   };
 
   const adviceList = [

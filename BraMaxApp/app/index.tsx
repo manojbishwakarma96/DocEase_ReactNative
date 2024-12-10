@@ -23,7 +23,7 @@ const SignInScreen = () => {
     // Check if email and password match mock credentials
     if (email === mockEmail && password === mockPassword) {
       console.log('Login successful');
-      navigation.navigate('WelcomeScreen'); // Navigate to the WelcomeScreen after login
+      navigation.navigate('Screens'); // Navigate to the WelcomeScreen after login
     } else {
       Alert.alert('Error', 'Invalid email or password');
     }
@@ -55,7 +55,7 @@ const SignInScreen = () => {
 
       <TouchableOpacity
         style={styles.linkButton}
-        onPress={() => navigation.navigate('Screens/SignUpScreen')}  // Navigate to RegisterScreen
+        onPress={() => navigation.navigate('SignUpScreen')}  // Navigate to RegisterScreen
       >
         <Text style={styles.linkText}>Don't have an account? Sign Up</Text>
       </TouchableOpacity>
